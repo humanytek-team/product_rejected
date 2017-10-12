@@ -18,7 +18,9 @@ class ProductRejected(models.Model):
     product_tmpl_id = fields.Many2one(
         'product.template', 'Product', required=True)
     product_id = fields.Many2one(
-        'product.product', 'Product (variant)', required=True)
+        'product.product',
+        'Product (variant)',
+        required=True)
     partner_id = fields.Many2one('res.partner', 'Partner')
     date = fields.Datetime(
         'Date',
@@ -68,3 +70,14 @@ class ProductTemplate(models.Model):
         'product.rejected',
         'product_tmpl_id',
         'Product negations')
+
+    count_product_negations = fields.Integer(
+        'Counter of product negations',
+        compute='_compute_count_product_negations')
+
+    @api.depends('products_rejected_ids')
+    def _compute_count_product_negations(self):
+        """Computes value of field count_product_negations"""
+
+        for record in self:
+            record.count_product_negations = len(record.products_rejected_ids)
