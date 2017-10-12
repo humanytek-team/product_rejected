@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+      <record id="product_template_form_rejected" model="ir.ui.view">
+          <field name="name">product.template.form.rejected</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_form_view" />
+          <field name="arch" type="xml">
+            <xpath expr="//page[@name='notes']" position="before">
+              <page string="Product negations">
+                <separator string="Product negations"/>
+                <field name="products_rejected_ids" nolabel="1">
+                  <tree editable="bottom">
+                    <field name="product_id" />
+                    <field name="partner_id" />
+                    <field name="company_id" />
+                    <field name="qty" />
+                    <field name="date" />
+                  </tree>
+                </field>
+              </page>
+            </xpath>
+          </field>
+      </record>
+
+    </data>
+</openerp>
