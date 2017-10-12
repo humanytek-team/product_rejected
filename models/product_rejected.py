@@ -4,7 +4,9 @@
 
 from datetime import datetime
 
-from openerp import fields, models
+from openerp import api, fields, models
+from openerp.exceptions import ValidationError
+from openerp.tools.translate import _
 
 
 class ProductRejected(models.Model):
@@ -30,6 +32,32 @@ class ProductRejected(models.Model):
         readonly=True)
     qty = fields.Integer('Quantity', default=1)
 
+    @api.constrains('date')
+    def _check_date(self):
+        """Check limit of time to record product negations to same partner"""
+
+        limit_hours = self.env.user.company_id.product_rejected_limit_hours
+        if limit_hours > 0:
+            for record in self:
+                last_record = self.search([
+                    ('id', '!=', record.id),
+                    ('product_id', '=', record.product_id.id),
+                    ('partner_id', '=', record.partner_id.id),
+                    ('company_id', '=', self.env.user.company_id.id),
+                ], order='date')
+                if last_record:
+                    last_record_date = last_record[-1].date
+                    last_record_datetime = datetime.strptime(
+                        last_record_date, '%Y-%m-%d %H:%M:%S')
+                    record_date = datetime.strptime(
+                        record.date, '%Y-%m-%d %H:%M:%S')
+
+                    diff = record_date - last_record_datetime
+                    hours_diff = (diff.seconds / 60.0) / 60
+                    if hours_diff <= limit_hours:
+                        raise ValidationError(
+                            _('This product rejected has already been registered for this same partner in the last %s hours.' % limit_hours)
+                        )
 
 class ProductTemplate(models.Model):
     """Inheritance of model product.template base"""

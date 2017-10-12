@@ -12,6 +12,7 @@
     'depends': ['product', ],
     'data': [
         'views/product_rejected_view.xml',
+        'views/res_company_view.xml',
     ],
     'installable': True,
     'auto_install': False
