@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+      <record id="product_template_form_rejected" model="ir.ui.view">
+          <field name="name">product.template.form.rejected</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_form_view" />
+          <field name="arch" type="xml">
+            <xpath expr="//page[@name='notes']" position="before">
+              <page string="Product negations">
+                <separator string="Product negations"/>
+                <field name="products_rejected_ids" nolabel="1">
+                  <tree editable="bottom">
+                    <field
+                      name="product_id"
+                      domain="[('product_tmpl_id', '=', parent.id)]"/>
+                    <field name="partner_id" />
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="qty" />
+                    <field name="date" />
+                  </tree>
+                </field>
+              </page>
+            </xpath>
+          </field>
+      </record>
+
+      <record id="product_rejected_search_form_view" model="ir.ui.view">
+          <field name="name">product.rejected.search.form</field>
+          <field name="model">product.rejected</field>
+          <field name="arch" type="xml">
+              <search string="Product negations">
+                  <field name="product_id"/>
+                  <field name="date"/>
+                  <field name="partner_id"/>
+                  <field name="company_id" groups="base.group_multi_company"/>
+
+                  <group expand="1" string="Group By">
+                      <filter
+                        string="Company"
+                        context="{'group_by':'company_id'}"
+                        groups="base.group_multi_company"
+                        name="group_by_company"/>
+                      <filter
+                        string="Product Template"
+                        context="{'group_by':'product_tmpl_id'}"
+                        name="group_by_product_template"/>
+                      <filter
+                        string="Product"
+                        context="{'group_by':'product_id'}"
+                        name='group_by_product'/>
+                      <filter
+                        string="Partner"
+                        context="{'group_by':'partner_id'}"
+                        name="group_by_partner_id"/>
+                      <filter
+                        string="Date"
+                        context="{'group_by':'date'}"
+                        name="group_by_date"/>
+                   </group>
+              </search>
+          </field>
+      </record>
+
+      <record id="view_product_rejected_form" model="ir.ui.view">
+          <field name="name">product.rejected.form</field>
+          <field name="model">product.rejected</field>
+          <field name="arch" type="xml">
+              <form string="Product Negations" version="7.0">
+                  <sheet>
+                      <div class="oe_title">
+                          <div class="oe_edit_only">
+                              <label for="product_tmpl_id" string="Product"/>
+                          </div>
+                          <h1>
+                              <field name="product_tmpl_id"/>
+                          </h1>
+                      </div>
+                      <group>
+                        <group>
+                          <field
+                            name="product_id"
+                            domain="[('product_tmpl_id', '=', product_tmpl_id)]" />
+                          <field name="partner_id" />
+                          <field name="date" />
+                        </group>
+                        <group>
+                          <field name="company_id" />
+                          <field name="qty" />
+                        </group>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_product_rejected_tree" model="ir.ui.view">
+          <field name="name">product.rejected.tree</field>
+          <field name="model">product.rejected</field>
+          <field name="arch" type="xml">
+              <tree string="Products Negations">
+                  <field
+                    name="product_id"
+                    domain="[('product_tmpl_id', '=', parent.id)]"/>
+                  <field name="partner_id" />
+                  <field name="company_id" groups="base.group_multi_company"/>
+                  <field name="qty" />
+                  <field name="date" />
+              </tree>
+          </field>
+      </record>
+
+      <act_window
+          id="action_open_product_negations"
+          name="Product negations"
+          res_model="product.rejected"
+          view_type="form"
+          view_mode="tree"
+          domain="[('product_tmpl_id', '=', active_id)]"
+          context="{'search_default_group_by_company': True, 'search_default_group_product': True,}"/>
+
+      <record id="view_product_template_negations_kanban" model="ir.ui.view">
+          <field name="name">product negations kanban view</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_kanban_view" />
+          <field name="arch" type="xml">
+              <xpath expr="//div[@class='oe_kanban_details']/strong[1]" position="after">
+                  <field name="products_rejected_ids" invisible="1" />
+                  <field name="count_product_negations" invisible="1" />
+                  <div>
+                      <a t-if="record.count_product_negations.value > 0" type="action"
+                         name="%(action_open_product_negations)d">
+                          Negados <field name="count_product_negations"/>
+                      </a>
+                  </div>
+              </xpath>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_products_negations">
+          <field name="name">Product negations</field>
+          <field name="res_model">product.rejected</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                  Record a new negation for a product.
+              </p>
+          </field>
+          <field name="context">
+            {
+              'search_default_group_by_company': True,
+              'search_default_group_by_product_template': True,
+              'search_default_group_by_product': True,
+            }
+          </field>
+      </record>
+
+      <menuitem
+          name="Products Negations"
+          id="menu_products_negations"
+          action="action_products_negations"
+          parent="base.menu_sale_report"/>
+
+    </data>
+</openerp>

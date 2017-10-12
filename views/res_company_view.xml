@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+        <record id="res_company_product_rejected_limit_hours" model="ir.ui.view">
+            <field name="name">res.company.product.rejected.limit.hours</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+
+              <page name='configuration' position='inside'>
+                <group>
+                    <group name="product_rejected_conf" string="Product negations">
+                        <field name="product_rejected_limit_hours"/>
+                    </group>
+                </group>
+              </page>
+
+            </field>
+        </record>
+
+    </data>
+</openerp>

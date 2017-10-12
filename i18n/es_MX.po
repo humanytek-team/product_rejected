@@ -1,0 +1,198 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_rejected
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0e-20170815\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-12 20:28+0000\n"
+"PO-Revision-Date: 2017-10-12 16:33-0400\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_MX\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_product_product_box_id
+msgid "Box"
+msgstr "Caja"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_product_product_brand_id
+msgid "Brand"
+msgstr "Brand"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_product_catalog_page
+msgid "Catalog Page"
+msgstr "Página de Catálogo"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_product_product_color_id
+msgid "Color"
+msgstr "Color"
+
+#. module: product_rejected
+#: model:ir.model,name:product_rejected.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_company_id
+#: model:ir.ui.view,arch_db:product_rejected.product_rejected_search_form_view
+msgid "Company"
+msgstr "Compañía"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_template_count_product_negations
+msgid "Counter of product negations"
+msgstr "Cantidad de negados"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_date
+#: model:ir.ui.view,arch_db:product_rejected.product_rejected_search_form_view
+msgid "Date"
+msgstr "Fecha"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_display_name
+msgid "Display Name"
+msgstr "Nombre desplegado"
+
+#. module: product_rejected
+#: model:ir.ui.view,arch_db:product_rejected.product_rejected_search_form_view
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected___last_update
+msgid "Last Modified on"
+msgstr "Ultima modificacion realizada"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_write_uid
+msgid "Last Updated by"
+msgstr "Ultima actualizacion por"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_write_date
+msgid "Last Updated on"
+msgstr "Ultima actualización realizada"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_res_company_product_rejected_limit_hours
+msgid "Limit of hours to record negations of products"
+msgstr "Limite de horas para registrar productos negados"
+
+#. module: product_rejected
+#: model:ir.ui.view,arch_db:product_rejected.view_product_template_negations_kanban
+msgid "Negations"
+msgstr "Negados"
+
+#. module: product_rejected
+#: model:ir.model.fields,help:product_rejected.field_res_company_product_rejected_limit_hours
+msgid "Not registering when the same product is detected for the same customer/supplier as a product denied within this time limit."
+msgstr "No permite registrar productos negados para el mismo cliente dentro de este limite de tiempo."
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_partner_id
+#: model:ir.ui.view,arch_db:product_rejected.product_rejected_search_form_view
+msgid "Partner"
+msgstr "Cliente"
+
+#. module: product_rejected
+#: model:ir.model,name:product_rejected.model_product_product
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_product_tmpl_id
+#: model:ir.ui.view,arch_db:product_rejected.product_rejected_search_form_view
+#: model:ir.ui.view,arch_db:product_rejected.view_product_rejected_form
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_product_id
+msgid "Product (variant)"
+msgstr "Producto (variante)"
+
+#. module: product_rejected
+#: model:ir.ui.view,arch_db:product_rejected.view_product_rejected_form
+msgid "Product Negations"
+msgstr "Negados"
+
+#. module: product_rejected
+#: model:ir.model,name:product_rejected.model_product_template
+#: model:ir.ui.view,arch_db:product_rejected.product_rejected_search_form_view
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_rejected
+#: model:ir.actions.act_window,name:product_rejected.action_open_product_negations
+#: model:ir.actions.act_window,name:product_rejected.action_products_negations
+#: model:ir.model.fields,field_description:product_rejected.field_product_product_products_rejected_ids
+#: model:ir.model.fields,field_description:product_rejected.field_product_template_products_rejected_ids
+#: model:ir.ui.view,arch_db:product_rejected.product_rejected_search_form_view
+#: model:ir.ui.view,arch_db:product_rejected.product_template_form_rejected
+#: model:ir.ui.view,arch_db:product_rejected.res_company_product_rejected_limit_hours
+msgid "Product negations"
+msgstr "Negados"
+
+#. module: product_rejected
+#: model:ir.ui.menu,name:product_rejected.menu_products_negations
+#: model:ir.ui.view,arch_db:product_rejected.view_product_rejected_tree
+msgid "Products Negations"
+msgstr "Negados"
+
+#. module: product_rejected
+#: model:ir.model.fields,field_description:product_rejected.field_product_rejected_qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: product_rejected
+#: model:ir.actions.act_window,help:product_rejected.action_products_negations
+msgid "Record a new negation for a product."
+msgstr "Registre un nuevo negado para un producto."
+
+#. module: product_rejected
+#: model:ir.model.fields,help:product_rejected.field_product_product_product_box_id
+msgid "Select a box for this product"
+msgstr "Seleccione una caja para este producto"
+
+#. module: product_rejected
+#: model:ir.model.fields,help:product_rejected.field_product_product_product_brand_id
+msgid "Select a brand for this product"
+msgstr "Select a brand for this product"
+
+#. module: product_rejected
+#: model:ir.model.fields,help:product_rejected.field_product_product_product_color_id
+msgid "Select a color for this product"
+msgstr "Selecciona un color para este producto"
+
+#. module: product_rejected
+#: code:addons/product_rejected/models/product_rejected.py:61
+#, python-format
+msgid "This product rejected has already been registered for this same partner in the last %s hours."
+msgstr "Este negado ya fue registrado para este mismo cliente en las ultimas %s horas."
+
+#. module: product_rejected
+#: model:ir.model,name:product_rejected.model_product_rejected
+msgid "product.rejected"
+msgstr "product.rejected"
