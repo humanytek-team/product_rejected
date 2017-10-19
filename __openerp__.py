@@ -4,7 +4,7 @@
 
 {
     'name': 'Record the number of times a product is rejected',
-    'version': '9.0.1.0.1',
+    'version': '9.0.1.0.2',
     'category': 'Sales',
     'author': 'Humanytek',
     'website': "http://www.humanytek.com",
@@ -13,6 +13,7 @@
     'data': [
         'views/product_rejected_view.xml',
         'views/res_company_view.xml',
+        'security/ir.model.access.csv',
     ],
     'installable': True,
     'auto_install': False
