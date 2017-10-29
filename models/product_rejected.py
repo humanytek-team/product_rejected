@@ -29,7 +29,6 @@ class ProductRejected(models.Model):
     company_id = fields.Many2one(
         'res.company',
         'Company',
-        required=True,
         default=lambda self: self.env.user.company_id.id,
         readonly=True)
     qty = fields.Integer('Quantity', default=1)
