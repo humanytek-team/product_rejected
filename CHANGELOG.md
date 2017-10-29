@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+## [9.0.1.0.3] - 2017-10-29
+### changed
+- Changes field company_id to not required in model product.rejected. This is for register negations to users not logged.
+
 ## [9.0.1.0.2] - 2017-10-18
 ### added
 - Adds access rules to model product.rejected.
